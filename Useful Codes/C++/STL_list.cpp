@@ -30,6 +30,12 @@ int main(){
     advance(it1,n1);
     l1.insert(it1,{1,2,3});
 
+    // First element
+    int first_element= l1.front();
+
+    // Last element
+    int last_element = l1.back();
+
     // Middle element of the list  (if even 2nd element)
     auto it2 =l1.begin();
     advance(it2,l1.size()/2);
