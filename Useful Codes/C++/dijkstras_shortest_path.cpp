@@ -12,13 +12,13 @@ class Graph {
     vector<int> previous ;
     int n;
     int source;
+    int inf;
 
     public:
-
     Graph(int n)
     {
         this->n=n;
-        int inf = numeric_limits<int>::max();
+        inf = numeric_limits<int>::max();
         g.resize(n);
         distance.resize(n,inf);
         previous.resize(n,-1);
@@ -30,7 +30,12 @@ class Graph {
     void display_shortest_distance( )
     {
         for (auto it = distance.begin(); it!= distance.end(); it++)
-        cout<<*it<<" ";
+        {
+            if (*it!= inf)
+            cout<<*it<<" ";
+            else cout<<"NO ";
+        }
+
         cout<<endl;
 
     }
@@ -39,7 +44,9 @@ class Graph {
     {
          for(int i = 0 ; i < n;i++)
         {
+            if(distance[i]!=inf)
             cout<<distance[i]<< " : ";
+            else cout<<"NO";
             
             int start = previous[i];
             vector<int> path;
