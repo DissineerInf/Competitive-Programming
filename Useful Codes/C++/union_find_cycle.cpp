@@ -27,9 +27,12 @@ node * find_method(node * t)
     return t->parent;
 }
 
-void union_method(node * a, node * b)
+void union_method(node * x, node * y)
 {
-    if (find_method(a) == find_method(b)) 
+    node * a = find_method(x);
+    node * b = find_method(y); 
+
+    if (a == b) 
     return;
 
     if (a->rank > b->rank)
@@ -52,6 +55,7 @@ void union_method(node * a, node * b)
     }
 
 }
+
 
 
 int main() {
